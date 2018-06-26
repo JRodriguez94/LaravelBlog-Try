@@ -15,11 +15,14 @@
 </head>
 <body>
     <header>
+        <?php function activeMenu($url){
+            return request()->is($url) ? 'active' : '';
+        }?>
     <h1>{{ request() -> is('/') ? 'Estás en el home' : 'No estás en el home' }}</h1>
         <nav>
-            <a class="activate" href="{{ route('home') }}">Home</a><br>
-            <a href="{{ route('saludos', 'Alguien') }}">Saludos</a><br>
-            <a href="{{ route('contactos') }}">Contactos</a><br>
+            <a class="{{ activeMenu('/') }}" href="{{ route('home') }}">Home</a><br>
+            <a class="{{ activeMenu('saludos/*') }}" href="{{ route('saludos', 'Alguien') }}">Saludos</a><br>
+            <a class="{{ activeMenu('contactos') }}" href="{{ route('contactos') }}">Contactos</a><br>
         </nav>
     </header>
     @yield('contenido')
