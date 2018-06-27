@@ -16,10 +16,12 @@
 
 // 	}]);
 
-Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']); //Esta linea declara la ruta a mostrar usando un controlador
+Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home'])->middleware('example'); //Esta linea declara la ruta a mostrar usando un controlador
 
 
 Route::get('contactos', ['as' => 'contactos','uses' => 'PagesController@contact']);
-
+Route::post('contactos', 'PagesController@mensajes');
 
 Route::get('saludos/{nombre?}', ['as' => 'saludos', 'uses' => 'PagesController@saludo'])->where('nombre', "[A-Za-z]+");
+
+Route::get('mensajes/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);

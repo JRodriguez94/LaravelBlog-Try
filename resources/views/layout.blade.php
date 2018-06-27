@@ -10,6 +10,11 @@
             text-decoration: none;
             color: green;
         }
+        .error
+        {
+            color: red;
+            font-size: 12px;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -22,7 +27,7 @@
         <nav>
             <a class="{{ activeMenu('/') }}" href="{{ route('home') }}">Home</a><br>
             <a class="{{ activeMenu('saludos/*') }}" href="{{ route('saludos', 'Alguien') }}">Saludos</a><br>
-            <a class="{{ activeMenu('contactos') }}" href="{{ route('contactos') }}">Contactos</a><br>
+            <a class="{{ activeMenu('contactos') }}" href="{{ route('messages.create') }}">Contactos</a><br>
         </nav>
     </header>
     @yield('contenido')
