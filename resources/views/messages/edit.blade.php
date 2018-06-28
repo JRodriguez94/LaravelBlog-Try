@@ -1,29 +1,28 @@
 @extends('layout')
 
 @section('contenido')
-    <h1>Contactos</h1>
-    <h2>Escribeme</h2>
-    @if( session()->has('info'))
-        <h3> {{ session('info') }} </h3>
-    @else
-    <form method="POST" action="{{ route('messages.store') }}">
-        <h3>{!! session('info') !!}</h3>
+
+<h1>Editar mensaje de {{ $message->nombre }}</h1>
+
+<form method="POST" action="{{ route('messages.update', $message->id) }}">
+        {!! method_field('PUT') !!}
+        {!! csrf_field() !!}
         <p><label for="Nombre">
             Nombre
-            <input type="text" name="nombre">
+            <input type="text" name="nombre" value="{{ $message->nombre }}">
             {!! $errors->first('nombre', '<span class=error>:message</span>') !!}
         </label></p>
         <p><label for="Email">
             Email
-            <input type="text" name="email">
+            <input type="text" name="email" value="{{ $message->email }}">
             {!! $errors->first('email', '<span class=error>:message</span>') !!}
         </label></p>
         <p><label for="Mensaje">
             Mensaje
-            <textarea name="mensaje"></textarea>
+            <textarea name="mensaje">{{ $message->mensaje }}</textarea>
             {!! $errors->first('mensaje', '<span class=error>:message</span>') !!}
         </label></p>
         <input type="submit" value="Enviar">
     </form>
-    @endif
+
 @stop
