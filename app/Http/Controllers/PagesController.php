@@ -24,35 +24,36 @@ class PagesController extends Controller
 		// 	->cookie('X-COOKIE', 'cookie');
     }
 
-    public function contact()
-    {
-        return view('contactos');
-	}
+	//---------------------------------------  Se eliminan estos metodos porque ya están definidos en el controlador MessagesController
+    // public function contact()
+    // {
+    //     return view('contactos');
+	// }
 	
-	public function mensajes(\App\Http\Requests\CreateMessageRequest $request)
-	{
-		$data = $request->all();
+	// public function mensajes(\App\Http\Requests\CreateMessageRequest $request)
+	// {
+	// 	$data = $request->all();
 
-		return back()->with('info', 'Tu mensaje ha sido enviado correctamente (:');
+	// 	return back()->with('info', 'Tu mensaje ha sido enviado correctamente (:');
 
-		//------------ Redireccionar vistas con un mensaje de información como parametro dentro de la sessión.
-		// return redirect()
-		// 	->route('contactos')
-		// 	->with('info', 'Tu mensaje ha sido enviado conrrectamente :)');
+	// 	//------------ Redireccionar vistas con un mensaje de información como parametro dentro de la sessión.
+	// 	// return redirect()
+	// 	// 	->route('contactos')
+	// 	// 	->with('info', 'Tu mensaje ha sido enviado conrrectamente :)');
 
 
 
-		//return 'procesando el mensaje';
+	// 	//return 'procesando el mensaje';
 		
-		// if($request->has('nombre'))
-		// {
-		// 	return "Si tiene nombre. Es " . $request->input('nombre');
-		// }
+	// 	// if($request->has('nombre'))
+	// 	// {
+	// 	// 	return "Si tiene nombre. Es " . $request->input('nombre');
+	// 	// }
 	
-		// return "No tiene nombre";
+	// 	// return "No tiene nombre";
 
-		//return $request->all();
-	}
+	// 	//return $request->all();
+	// }
 
     public function saludo($nombre = "Invitado")
     {

@@ -6,8 +6,8 @@
     @if( session()->has('info'))
         <h3> {{ session('info') }} </h3>
     @else
-    <form method="POST" action="{{ route('messages.store') }}">
-        <h3>{!! session('info') !!}</h3>
+    <form method="POST" action="{{ route('mensajes.store') }}">
+        <h3>{!! csrf_field() !!}</h3>
         <p><label for="Nombre">
             Nombre
             <input type="text" name="nombre">

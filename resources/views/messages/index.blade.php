@@ -19,9 +19,9 @@
         <tbody>
             @foreach($messages as $message)
             <tr>
-                {{-- <td>{{ $messages->id }}</td> --}}  |
+                {{-- <td>{{ $messages->id }}</td>  | --}}
                 <td>
-                    <a href="{{ route('messages.show', $message->id) }}">
+                    <a href="{{ route('mensajes.show', $message->id) }}">
                         {{ $message->nombre }}
                     </a> 
                 </td>
@@ -31,8 +31,8 @@
                 <td>{{ $message->created_at }}</td>
                 <td>{{ $message->updated_at }}</td>
                 <td>
-                    <a href="{{ route('messages.edit', $message->id) }}">Editar</a>
-                    <form style="display:inline" method="POST" action="{{ route('messages.destroy', $message->id) }}">
+                    <a href="{{ route('mensajes.edit', $message->id) }}">Editar</a>
+                    <form style="display:inline" method="POST" action="{{ route('mensajes.destroy', $message->id) }}">
                         {!! csrf_field() !!}
                         {!! method_field('DELETE') !!}
                         <button type="submit">Eliminar</button>
