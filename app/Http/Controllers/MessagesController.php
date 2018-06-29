@@ -135,6 +135,8 @@ class MessagesController extends Controller
             si el id proporcionado no existe. En lugar de darnos un error
             de Unfinded object, nos redirecciona ana vista de erro 404
         */
+
+        
         $message = Message::findOrFail($id);
 
         return view('messages.edit', compact('message'));
@@ -163,6 +165,7 @@ class MessagesController extends Controller
             si el id proporcionado no existe. En lugar de darnos un error
             de Unfinded object, nos redirecciona ana vista de erro 404
         */
+        //dd($request->all());
         $message = Message::findOrFail($id)->update($request->all()); //Manda allamar el metodo update que recibe todo el request.
 
 

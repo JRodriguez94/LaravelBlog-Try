@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('contenido')
-    <h1>Contactos</h1>
-    <h2>Escribeme</h2>
+    <h1>Contactos</h1><br>
+    <h4>Escribeme</h4>
     @if( session()->has('info'))
         <h3> {{ session('info') }} </h3>
     @else
@@ -10,20 +10,21 @@
         <h3>{!! csrf_field() !!}</h3>
         <p><label for="Nombre">
             Nombre
-            <input type="text" name="nombre">
+            <input class="form-control" type="text" name="nombre">
             {!! $errors->first('nombre', '<span class=error>:message</span>') !!}
         </label></p>
         <p><label for="Email">
             Email
-            <input type="text" name="email">
+            <input class="form-control" type="text" name="email">
             {!! $errors->first('email', '<span class=error>:message</span>') !!}
         </label></p>
         <p><label for="Mensaje">
             Mensaje
-            <textarea name="mensaje"></textarea>
+            <textarea class="form-control" name="mensaje"></textarea>
             {!! $errors->first('mensaje', '<span class=error>:message</span>') !!}
         </label></p>
-        <input type="submit" value="Enviar">
+        {!! csrf_field() !!}
+        <input class="btn btn-primary" type="submit" value="Enviar">
     </form>
     @endif
 @stop

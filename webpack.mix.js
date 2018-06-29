@@ -15,5 +15,17 @@ let mix = require('laravel-mix');
         .sass('resources/assets/sass/app.scss', 'public/css');
     
         //--Compilando con less
-//    mix.js('resources/assets/js/app.js', 'public/js')
-//         .less('resources/assets/less/styles.less', 'public/css');
+//    
+
+    mix.scripts(
+        [
+            'node_modules/jquery/dist/jquery.js',
+            'node_modules/boostrap/dist/js/bootstrap.js',
+        ], 'public/js/all.js', 'node_modules'
+    );
+
+    mix.browserSync(
+        {
+            proxy: 'blog.test'
+        }
+    );
