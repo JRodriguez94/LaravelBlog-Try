@@ -3,6 +3,9 @@
 @section('contenido')
 
 <h1>Editar mensaje de {{ $message->nombre }}</h1>
+@if( session()->has('info') )
+   <div class="alert alert-success">{{ session('info') }}</div>
+@endif
 
 <form method="POST" action="{{ route('mensajes.update', $message->id) }}">
         {!! method_field('PUT') !!}
@@ -22,7 +25,6 @@
             <textarea class="form-control" name="mensaje">{{ $message->mensaje }}</textarea>
             {!! $errors->first('mensaje', '<span class=error>:message</span>') !!}
         </label></p>
-        {!! csrf_field() !!}
         <input class="btn btn-primary" type="submit" value="Enviar">
     </form>
 

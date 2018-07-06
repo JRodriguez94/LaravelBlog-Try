@@ -90,6 +90,7 @@ class MessagesController extends Controller
             el ingreso masivo de datos) mediante el metodo  protected $filable = ["array de elementos permitidos];
         */
         Message::create($request->all());
+        //return $request; //Quitar para que funcione
 
         return redirect()->route('mensajes.create')->with('info', 'Hemos recibido tu mensaje');
     }

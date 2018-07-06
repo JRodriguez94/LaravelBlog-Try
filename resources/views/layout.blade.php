@@ -1,3 +1,5 @@
+{{-- {{ dd( auth()->user()->roles->toArray() ) }} --}} {{-- Esta función sirve para ver que me está mandando los roles que tiene asignados el usuario logueado --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,10 +46,16 @@
                     <li class="nav-item active">
                             <a class="nav-link" class="{{ activeMenu('mensajes*') }}" href="{{ route('mensajes.index') }}">Mensajes</a>
                     </li>
+                   
                     {{-- <li>
                             <a class="nav-link" href="/logout">Cerrar sesión de {{ auth()->user()->name }}</a>
                     </li> --}}
+                    @if(auth()->user()->hasRoles(['admin','moderador']))
+                     <li class="nav-item active">
+                            <a class="nav-link" class="{{ activeMenu('usuarios*') }}" href="{{ route('usuarios.index') }}">Usuarios</a>
+                    </li>
                     @endif
+                 @endif
                     {{-- @if(auth()->guest())
                     <li>
                             <a class="nav-link" class="{{ activeMenu('login') }}" href="/login">Login</a>

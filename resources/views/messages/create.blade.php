@@ -23,7 +23,7 @@
             <textarea class="form-control" name="mensaje"></textarea>
             {!! $errors->first('mensaje', '<span class=error>:message</span>') !!}
         </label></p>
-        {!! csrf_field() !!}
+        {{-- {!! csrf_field() !!} --}}
         <input class="btn btn-primary" type="submit" value="Enviar">
     </form>
     @endif
