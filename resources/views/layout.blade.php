@@ -63,19 +63,32 @@
                     @endif --}}
                    
              </ul>
-             <form class="navbar-nav mr-auto mt-2 mt-lg-0" {{--class="form-inline my-2 my-lg-0" class="nav-item active"--}}>
-               {{-- <input class="form-control mr-sm-2" type="text" placeholder="Search">
-               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
+             {{-- 77777777777777777777777777777777777777777777777777777777777777777777777777777777 --}}
+             {{-- Código del login/logout que funciona sin el dropdown --}}
+
+             {{-- <form class="navbar-nav mr-auto mt-2 mt-lg-0"
                @if(auth()->guest())
-               {{-- <li> --}}
                     <a class="nav-link" class="{{ activeMenu('login') }}" href="/login">Login</a>
-               {{-- </li> --}}
                @else
-               {{-- <li> --}}
                     <a class="nav-link" href="/logout">Cerrar sesión de {{ auth()->user()->name }}</a>
-               {{-- </li> --}}
                @endif
-             </form>
+             </form> --}}
+             {{-- 777777777777777777777777777777777777777777777777777777777777777777777777777777777 --}}
+             <ul class="nav navbar-nav navbar-right">
+               @if(auth()->guest())
+                <li class="{{ activeMenu('login') }}">
+                  <a href="/login">Login</a>
+                </li>
+               @else
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data_toogle="dropdown">{{ auth()->user()->name }}<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/logout">Cerrar sesión</a></li>
+                    <li><a href="/usuarios/{{ auth()->id() }}"></a>Mi cuenta</li>
+                  </ul>
+                </li>
+               @endif
+             </ul>
            </div>
          </nav>
         
